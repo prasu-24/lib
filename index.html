@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+    <center>
+    <body>
+        <div class="container">
+                <img src="./image.jpeg" height="100px" width="150px">
+            <h1>Library Management</h1>
+            <div class="form">
+                <input type="text" id="title" placeholder="Title">
+                <input type="text" id="author" placeholder="Author">
+                <input type="number" id="pages" placeholder="Pages">
+                <input type="text" id="genre" placeholder="Genre">
+                <button type="button" class="btn btn-success" onclick="addBook()">Add book</button> <br>
+            </div>
+            <div class="search">
+                <input type="text" id="searchTitle" placeholder="Search by Title">
+                <button type="button" class="btn btn-success" onclick="searchBooks()">Search</button> <br>
+            </div>
+            <div id="bookList"></div>
+        </div>
+    </center>
+<script>
+    let library = [];
+
+    function addBook() {
+        let title = document.getElementById('title').value;
+        let author = document.getElementById('author').value;
+        let pages = parseInt(document.getElementById('pages').value);
+        let genre = document.getElementById('genre').value;
+
+        if (title && author && pages && genre) {
+            const book = {
+                title: title,
+                author: author,
+                pages: pages,
+                genre: genre
+            };
+            library.push(book);
+            displayBooks();
+        } else {
+            alert("Please fill all the fields");
+        }
+    }
+
+    function displayBooks(books = library) {
+        let bookList = document.getElementById('bookList');
+        bookList.innerHTML = '';
+        books.forEach(book => {
+            let bookDiv = document.createElement('div');
+            bookDiv.classList.add('book');
+            bookDiv.innerHTML = `
+                <h3>${book.title}</h3>
+                <p>Author: ${book.author}</p>
+                <p>Pages: ${book.pages}</p>
+                <p>Genre: ${book.genre}</p>
+                <hr>
+                
+            `;
+            bookList.appendChild(bookDiv);
+        });
+    }
+
+    function searchBooks() {
+    let searchQuery = document.getElementById('searchTitle').value.trim().toLowerCase();
+    let searchResult = library.find(book => book.title.toLowerCase() === searchQuery);
+    if (searchResult) {
+        displayBooks([searchResult]); 
+    }
+     else {
+        alert("Book not found");
+    }
+}
+</script>
+</body>
+</html>

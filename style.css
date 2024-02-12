@@ -1,0 +1,70 @@
+
+.division{
+        background-color: rgba(71, 39, 85, 0.25);
+        box-shadow: 20px 20px 20px #a484d6;
+        font-family:serif;
+        padding: 50px 50px;
+        margin-left: 200px;
+        margin-top: 30px;
+        margin-right: 200px;
+        margin-bottom: 30px;
+        padding-bottom: 30px;
+        border-radius: 64px 64px 64px 64px;
+}
+
+        body {
+                font-family:sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f7f7f7;
+            }
+    
+            .container {
+                max-width: 800px;
+                margin: 20px auto;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.623);
+            }
+    
+            h1 {
+                text-align: center;
+                color: #333;
+            }
+    
+            .form, .search {
+                margin-bottom: 20px;
+            }
+    
+            input[type="text"], input[type="number"], button {
+                padding: 10px;
+                margin: 5px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+    
+            button {
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                cursor: pointer;
+            }
+    
+            button:hover {
+                background-color: #45a049;
+            }
+    
+            #bookList {
+                border: 1px solid #ccc;
+                padding: 10px;
+                border-radius: 5px;
+            }
+    
+            .book {
+                margin-bottom: 10px;
+                padding: 10px;
+                border: 1px solid #eee;
+                background-color: #f9f9f9;
+            }
+    
